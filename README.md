@@ -3,7 +3,11 @@
 before running it on your machine, install npm  
 
 ## Run the app  
-terminal> ```nodejs server.js```
+add the file logicalp_cashback.sql to mysql database  
+mysql> ```\. logicalp_cashback.sql```  
+
+start the node server  
+terminal> ```nodejs server.js```  
 
 ## Data
 #### Slider image

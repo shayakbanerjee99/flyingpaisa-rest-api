@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Slider image
+
+        h1(class="title") Stores
+        div(class="form")
+            form(method="POST" action="/sliderimage/add")
+                text image 
+                input(type="text" class="txt-image" name="image")
+                
+                br 
+
+                text url 
+                textarea(type="text" class="txt-url" name="url")
+
+                br
+
+                input(type="submit" value="SUBMIT")

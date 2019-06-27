@@ -36,8 +36,8 @@ con.connect(function(err){
     }
 })
 
-app.get('/stores_data', (req, res)=>{
-    var sql = "SELECT * FROM stores;";
+app.get('/sliderimage_data', (req, res)=>{
+    var sql = "SELECT * FROM sliderimage;";
 
     //executing the query
     con.query(sql, (err, result) => {
@@ -45,7 +45,32 @@ app.get('/stores_data', (req, res)=>{
         // else
         res.json(result)
         res.end();
-        console.log("displayed stores data");
+        console.log("displayed sliderimage data");
+    })
+});
+
+app.get('/sliderimage', (req, res)=>{
+    res.render('sliderimage');
+})
+
+app.post('/sliderimage/add', urlencodedParser, (req, res)=>{
+    var response = {
+        image: req.body.image,
+        url: req.body.url
+    }
+
+    var sql = "INSERT INTO sliderimage(image, url) VALUES('" + response.image
+            + "', '" + response.url + "');";
+
+    console.log(sql);
+
+    con.query(sql, (err)=>{
+        if(err){
+            console.log(err);
+            res.end('there was an error, please go back and retry');
+        } else {
+            res.end("<html><body>data has been inserted</body></html>");
+        }
     })
 });
 
@@ -108,7 +133,7 @@ app.get('/tracking_data', (req, res) => {
 });
 
 app.get('/users_data', (req, res) => {
-    var sql = "SELECT * FROM sliderimage;";
+    var sql = "SELECT * FROM users;";
 
     //executing the query
     con.query(sql, (err, result) => {

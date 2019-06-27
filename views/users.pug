@@ -1,0 +1,55 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Users
+
+        h1(class="title") Users
+        div(class="form")
+            form(method="POST" action="/users/add")
+
+                // name email phone referal_code password flag identity refer_earn_code
+
+                text name 
+                input(type="text" class="txt-name" name="name")
+                
+                br 
+
+                text email 
+                textarea(type="text" class="txt-email" name="email")
+
+                br
+
+                text phone 
+                textarea(type="text" class="txt-phone" name="phone")
+
+                br
+
+                text referal_code 
+                textarea(type="text" class="txt-referal_code" name="referal_code")
+
+                br
+
+                text password 
+                textarea(type="text" class="txt-password" name="password")
+
+                br
+
+                text flag 
+                textarea(type="text" class="txt-flag" placeholder="integer only" name="flag")
+
+                br
+
+                text identity 
+                textarea(type="text" class="txt-identity" placeholder="integer only" name="identity")
+
+                br
+
+                text refer_earn_code 
+                textarea(type="text" class="txt-refer_earn_code" name="refer_earn_code")
+
+                br
+
+                input(type="submit" value="SUBMIT")

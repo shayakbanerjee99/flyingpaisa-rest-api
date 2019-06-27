@@ -180,3 +180,37 @@ app.get('/users_data', (req, res) => {
         console.log("displayed users data");
     })
 });
+
+app.get('/users', (req, res)=>{
+    res.render('users');
+});
+
+app.post('/users/add', urlencodedParser, (req, res)=>{
+    var response = {
+        name : req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        referalCode : req.body.referal_code,
+        password : req.body.password,
+        flag : req.body.flag,
+        identity : req.body.identity,
+        referEarnCode : req.body.refer_earn_code
+    }
+
+    var sql = "INSERT INTO users(name, email, phone, referal_code, password,"
+        + " flag, identity, refer_earn_code) VALUES('" + response.name + "', '"
+        + response.email + "', '" + response.phone + "', '" + response.referalCode
+        + "', '" + response.password + "', " + response.flag + ", " 
+        + response.identity + ", '" + response.referEarnCode + "');";
+
+    console.log(sql);
+
+    con.query(sql, (err)=>{
+        if(err){
+            console.log(err);
+            res.end('there was an error, please go back and retry');
+        } else {
+            res.end("<html><body>data has been inserted</body></html>");
+        }
+    })
+});

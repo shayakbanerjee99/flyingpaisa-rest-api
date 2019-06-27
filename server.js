@@ -132,6 +132,42 @@ app.get('/tracking_data', (req, res) => {
     })
 });
 
+app.get('/tracking', (req, res)=>{
+    res.render('tracking');
+})
+
+app.post('/tracking/add', urlencodedParser, (req, res)=>{
+    var response = {
+        p1 : req.body.p1,
+        p2 : req.body.p2,
+        p3 : req.body.p3,
+        p4 : req.body.p4,
+        p5 : req.body.p5,
+        p6 : req.body.p6,
+        p7 : req.body.p7,
+        p8 : req.body.p8,
+        p9 : req.body.p9,
+        p10 : req.body.p10
+    }
+
+    var sql = "INSERT INTO tracking(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) " 
+        + "VALUES('" + + response.p1 + "', '" + response.p2 + "', '" + response.p3 
+        + "', '" + response.p4 + "', '" + response.p5 + "', '" + response.p6 + "', '" 
+        + response.p7 + "', '"  + response.p8 + "', '" + response.p9 + "', '" 
+        + response.p10 + "');";
+
+    console.log(sql);
+
+    con.query(sql, (err)=>{
+        if(err){
+            console.log(err);
+            res.end('there was an error, please go back and retry');
+        } else {
+            res.end("<html><body>data has been inserted</body></html>");
+        }
+    })
+});
+
 app.get('/users_data', (req, res) => {
     var sql = "SELECT * FROM users;";
 

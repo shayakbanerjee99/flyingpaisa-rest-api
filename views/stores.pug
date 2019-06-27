@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Banks
+
+        h1(class="title") Stores
+        div(class="form")
+            form(method="POST" action="/stores/add")
+                text title 
+                input(type="text" class="txt-title" name="title")
+                
+                br 
+
+                text description 
+                textarea(type="text" class="txt-des" name="description")
+
+                br
+
+                text cashback rates 
+                textarea(type="text" class="txt-cashback-rates" name="cashback_rates")
+
+                br 
+
+                text coupons 
+                input(type="text" class="txt-coupons" name="coupons")
+
+                br
+
+                text redirect link 
+                input(type="text" class="txt-redirect-link" name="redirect_link")
+
+                br
+
+                input(type="submit" value="SUBMIT")
